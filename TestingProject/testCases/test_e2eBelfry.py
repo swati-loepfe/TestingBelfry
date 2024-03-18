@@ -21,7 +21,7 @@ def test_openPage(setup):
     driver.get(TestLogin.baseURL)
     driver.maximize_window()
     driver.implicitly_wait(10)
-    driver.quit()
+    driver.close()
 
 
 def test_first_click(setup):
@@ -31,6 +31,7 @@ def test_first_click(setup):
     driver.implicitly_wait(10)
     screenpage = ScreensaverPage(driver)
     screenpage.screensaver_button().click()
+
 
 
 def test_monitor_click(setup):

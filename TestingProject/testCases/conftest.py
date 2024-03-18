@@ -1,6 +1,6 @@
 import pytest
 from selenium import webdriver
-#This is a conf file
+#This is a conf file2
 
 @pytest.fixture()
 def setup(request):
@@ -9,4 +9,8 @@ def setup(request):
     driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(10)
     return driver
+
+
+
+
 
