@@ -1,0 +1,10 @@
+2024-03-18 12:23:31,795 - test_logging - DEBUG - %(message)s
+2024-03-18 12:23:31,795 - test_logging - INFO - %(message)s
+2024-03-18 12:23:31,795 - test_logging - WARNING - %(message)s
+2024-03-18 12:23:31,795 - test_logging - ERROR - %(message)s
+2024-03-18 12:23:31,796 - test_logging - CRITICAL - %(message)s
+2024-03-18 12:26:19,971 - test_logging - DEBUG - test_logging - Debug:
+2024-03-18 12:26:19,971 - test_logging - INFO - test_logging - Info:
+2024-03-18 12:26:19,972 - test_logging - WARNING - test_logging - Warning:
+2024-03-18 12:26:19,972 - test_logging - ERROR - test_logging - Error:
+2024-03-18 12:26:19,972 - test_logging - CRITICAL - test_logging - Critical:

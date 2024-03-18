@@ -1,0 +1,5 @@
+[35mDEBUG   [0m test_logging:test_logging.py:12 Debug:
+[32mINFO    [0m test_logging:test_logging.py:13 Info:
+[33mWARNING [0m test_logging:test_logging.py:14 Warning:
+[1m[31mERROR   [0m test_logging:test_logging.py:15 Error:
+[31mCRITICAL[0m test_logging:test_logging.py:16 Critical:
