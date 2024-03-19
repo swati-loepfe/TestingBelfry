@@ -27,9 +27,13 @@ steps:
 
 
 
-- script: |
-      Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
-  displayName: 'FindIP'
+- task: PowerShell@2
+  displayName: 'Retrieve IP'
+  inputs:
+    targetType: 'inline'
+    script: |
+      $ipAddress = Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
+      Write-Output "Retrieved IP Address: $ipAddress"
 
 - script: |
     pip install pytest pytest-azurepipelines
