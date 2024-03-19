@@ -24,8 +24,11 @@ steps:
     python -m pip install --upgrade pip
     pip install -r requirements.txt
   displayName: 'Install dependencies'
-   Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
 
+  - script: |
+     Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
+   displayName: 'FindIP'
+   
 - script: |
     pip install pytest pytest-azurepipelines
     pytest
