@@ -25,13 +25,7 @@ steps:
     pip install -r requirements.txt
   displayName: 'Install dependencies'
 
-
  - script: |
     pip install pytest pytest-azurepipelines
     pytest
   displayName: 'pytest'
-
-
-  - script: |
-     Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
-   displayName: 'FindIP'
