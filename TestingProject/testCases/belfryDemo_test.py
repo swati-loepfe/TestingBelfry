@@ -6,6 +6,7 @@ from selenium import webdriver
 @pytest.fixture()
 def login():
         options = webdriver.ChromeOptions()
+        options.headless(True)
         options.add_experimental_option("detach", True)
         browser = webdriver.Chrome(options=options)
         browser.get("http://13.68.159.147/")

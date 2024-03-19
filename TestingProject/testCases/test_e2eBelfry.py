@@ -32,8 +32,6 @@ def test_first_click(setup):
     screenpage = ScreensaverPage(driver)
     screenpage.screensaver_button().click()
 
-
-
 def test_monitor_click(setup):
     driver = setup
     driver.get(TestLogin.baseURL)
