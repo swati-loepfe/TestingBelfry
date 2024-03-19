@@ -22,7 +22,7 @@ steps:
 
 - script: |
     python -m pip install --upgrade pip
-    pip install -r $(build.sourcesdirectory)\requirements.txt
+    pip install -r '$(build.sourcesdirectory)\requirements.txt'
     displayName: 'Install dependencies'
 
 - script: |
