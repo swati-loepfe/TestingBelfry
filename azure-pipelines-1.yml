@@ -25,6 +25,16 @@ steps:
     pip install -r requirements.txt
   displayName: 'Install dependencies'
 
+
+
+- task: PowerShell@2
+  displayName: 'Retrieve IP'
+  inputs:
+    targetType: 'inline'
+    script: |
+      $ipAddress = Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
+      Write-Output "Retrieved IP Address: $ipAddress"
+
 - script: |
     pip install pytest pytest-azurepipelines
     pytest
