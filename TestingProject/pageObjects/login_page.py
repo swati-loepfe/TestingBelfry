@@ -7,6 +7,8 @@ class LoginPage:
     login_keyboard = (By.XPATH, "/html/body/app-root/loe-keyboard-loader/loe-keyboard/div[2]/input")
     login_check1 =(By.XPATH,"/html/body/app-root/loe-keyboard-loader/loe-keyboard/div[2]/div/div/div[5]/div[3]")
     login_check2 =(By.XPATH,"/html/body/div/div[2]/div/cdk-dialog-container/app-login-dialog/loe-dashboard-tile/div/div[2]/div/loe-button[2]/div/div/span")
+    login_incorrectpassword=(By.XPATH,"//*[@id='cdk-dialog-1']/app-access-denied-dialog/loe-dashboard-tile/div/div[2]/div/loe-button/div/div/span")
+
     ##Input keyboard key
     # driver.find_element_by_xpath(
     #    "//*[@id='cdk-dialog-0']/app-login-dialog/loe-dashboard-tile/div/div[2]/loe-input").click()
@@ -40,3 +42,7 @@ class LoginPage:
     def return_login_check2(self):
         driver = self.driver
         return driver.find_element(*LoginPage.login_check2)
+
+    def return_incorrect_password(self):
+        driver = self.driver
+        return driver.find_element(*LoginPage.login_incorrectpassword)
