@@ -36,8 +36,6 @@ def test_first_click(setup):
     driver.close()
 
 
-
-
 def test_login_page_correctpassword(setup):
     driver = setup
     driver.get(TestLogin.baseURL)
