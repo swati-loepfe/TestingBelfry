@@ -11,6 +11,10 @@ class MonitoringPage:
     splice_button =(By.XPATH,"/html/body/app-root/app-shell/div[2]/div/app-monitoring/div/div[1]/div/app-tab-bar/div/span[3]")
     bad_positions = (By.XPATH,"/html/body/app-root/app-shell/div[2]/div/app-monitoring/div/div[1]/div/app-tab-bar/div/span[4]")
     event_log_title=(By.XPATH,"/html/body/app-root/app-shell/div[2]/div/app-monitoring/div/div[1]/div/div/app-monitoring-event-log/div/loe-dashboard-tile/div/loe-dashboard-tile/div/div")
+    search_compare_header = (By.XPATH,"/html/body/app-root/app-shell/div[2]/div/app-monitoring/div/div[1]/div/div/app-monitoring-compare/div/div[2]/div[1]/loe-dashboard-tile/div/div[1]")
+    search_compare_mainheader = (By.XPATH,"/html/body/app-root/app-shell/div[2]/div/app-monitoring/div/div[1]/div/div/app-monitoring-event-log/div/loe-dashboard-tile/div/div")
+    search_compare_header_article2 = (By.XPATH,"/html/body/app-root/app-shell/div[2]/div/app-monitoring/div/div[1]/div/div/app-monitoring-compare/div/div[2]/div[2]/loe-dashboard-tile/div/div[1]")
+
 
     def __init__(self,driver):
         self.driver = driver
@@ -46,3 +50,15 @@ class MonitoringPage:
     def return_event_log_title(self):
         driver = self.driver
         return driver.find_element(*MonitoringPage.event_log_title)
+
+    def return_event_log_maintitle(self):
+        driver=self.driver
+        return driver.find_element(*MonitoringPage.search_compare_mainheader)
+
+    def return_compare_header(self):
+        driver = self.driver
+        return driver.find_element(*MonitoringPage.search_compare_header)
+
+    def return_compare_header_article2(self):
+        driver = self.driver
+        return driver.find_element(*MonitoringPage.search_compare_header_article2)

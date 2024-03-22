@@ -5,7 +5,6 @@ import allure
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-from pageObjects import monitoring_page
 from pageObjects.login_page import LoginPage
 from pageObjects.screensaver_page import ScreensaverPage
 from pageObjects.monitoring_page import MonitoringPage
@@ -13,7 +12,7 @@ from pageObjects.settings_page import SettingsPage
 from testCases.BaseClass import BaseClass
 
 
-@pytest.mark.usefixtures("setup")
+@pytest.mark.usefixtures("setup", "log_on_failure")
 class TestLogin(BaseClass):
     baseURL = "http://13.68.159.147/"
 
@@ -117,7 +116,7 @@ def test_monitoring_click_alltabs(setup):
     time.sleep(5)
     searchpage.return_event_button().click()
 
-
+# This test compares the header titles for Event logs Tab under monitoring dashboard
 def test_Monitoring_Event_log(setup):
     driver = setup
     driver.get(TestLogin.baseURL)
@@ -126,7 +125,7 @@ def test_Monitoring_Event_log(setup):
     # Navigate to Article Dashboard
     screenpage = ScreensaverPage(driver)
     screenpage.screensaver_button().click()
-    time.sleep(5)
+    time.sleep(3)
     monitoring_page= MonitoringPage(driver)
     time.sleep(1)
     monitoring_page.return_search_button().click()
@@ -134,9 +133,25 @@ def test_Monitoring_Event_log(setup):
     monitoring_page.return_event_button().click()
     time.sleep(3)
     assert monitoring_page.return_event_log_title().text == "Event\nTimestamp"
+    assert monitoring_page.return_event_log_maintitle().text == "Article 2 Position-1\nundo\nrefresh"
 
 
-
+# This test compares the header titles for compare monitoring dashboard
+def test_compare_header(setup):
+    driver = setup
+    driver.get(TestLogin.baseURL)
+    driver.maximize_window()
+    driver.implicitly_wait(50)
+    # Navigate to Article Dashboard
+    screenpage = ScreensaverPage(driver)
+    screenpage.screensaver_button().click()
+    time.sleep(5)
+    monitoring_page = MonitoringPage(driver)
+    time.sleep(1)
+    monitoring_page.return_search_button().click()
+    time.sleep(1)
+    assert monitoring_page.return_compare_header().text == "1 R\nCount alarm 0.00 F%"
+    assert monitoring_page.return_compare_header_article2().text == "Article 2"
 
 
 
