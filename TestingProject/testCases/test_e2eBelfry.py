@@ -9,6 +9,7 @@ from pageObjects.login_page import LoginPage
 from pageObjects.screensaver_page import ScreensaverPage
 from pageObjects.monitoring_page import MonitoringPage
 from pageObjects.settings_page import SettingsPage
+from pageObjects.articles_page import ArticlesPage
 from testCases.BaseClass import BaseClass
 
 
@@ -25,15 +26,25 @@ def test_openPage(setup):
     driver.close()
 
 
-def test_first_click(setup):
+def test_navigate_machinedashboard(setup):
     driver = setup
     driver.get(TestLogin.baseURL)
     driver.maximize_window()
     driver.implicitly_wait(10)
     screenpage = ScreensaverPage(driver)
     screenpage.screensaver_button().click()
-    driver.close()
 
+
+def test_navigate_articledashboard(setup):
+    driver = setup
+    driver.get(TestLogin.baseURL)
+    driver.maximize_window()
+    driver.implicitly_wait(10)
+    screenpage = ScreensaverPage(driver)
+    screenpage.screensaver_button().click()
+    articlepage = ArticlesPage(driver)
+    time.sleep(2)
+    articlepage.article_button().click()
 
 def test_login_page_correctpassword(setup):
     driver = setup
@@ -151,7 +162,7 @@ def test_compare_header(setup):
     monitoring_page.return_search_button().click()
     time.sleep(1)
     assert monitoring_page.return_compare_header().text == "1 R\nCount alarm 0.00 F%"
-    assert monitoring_page.return_compare_header_article2().text == "Article 2"
+    assert monitoring_page.return_compare_header_article2().text == "Article 1"
 
 
 
